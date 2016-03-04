@@ -1,0 +1,41 @@
+SET_ECHO ON                                                                                                                                             
+
+GO DATA
+D-SY FE
+REJECT P /ALL
+RESTORE P BCC
+GET
+GO -3
+S-C P=1E5 T=400 N=1
+C-E
+S-A-V 1 T 300 1800 ,,
+STEP ,,
+POST
+E-S F CP=HM.T;
+S-D-A Y CP
+S-D-A X T-K
+PL
+M-E-D
+FILE
+BACK
+GO GIBBS
+A-P-D BCC REMOVE
+GO -3
+L-C
+C-E
+L-A-V
+STEP ,,
+POST
+PL
+A-E-D
+Y
+1
+1
+PL
+S-S Y N 24 60
+PL
+D-D SVG CP_MAG
+M-E-D
+FILE
+
+SET_INTERACTIVE
