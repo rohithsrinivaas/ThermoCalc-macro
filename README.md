@@ -1,3 +1,6 @@
+## ThermoCalc Macros
+As part of the course titled "Computational Materials Science" (MM6010) taken by Prof. K C Hari Kumar
+
 ## Assignment 1
 Plot the lattice stability of hcp, fcc and liquid iron with respect to its bcc allotropic form. You may use PURE database from SGTE. – 5 marks (Due date: 17-02-2016)
 
