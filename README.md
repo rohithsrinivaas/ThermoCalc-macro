@@ -18,8 +18,9 @@ Plot the magnetic contribution to Gibbs energy of bcc iron as a function of temp
 ## Ternary System
 
 ### Liquidus projection
-Advanced options in POLY_3 module is used
-AlMgSi System
+AlMgSi system is modelled
+
+ADVANCED_OPTIONS in POLY_3 module is used initially. Traditional method of using CHANGE_STATUS is also shown.
 
 ### Solidification Path
 
