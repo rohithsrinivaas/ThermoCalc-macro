@@ -11,9 +11,9 @@ Plot the magnetic contribution to Gibbs energy of bcc iron as a function of temp
 
 ### Magnetic contribution to Gibbs energy
 
-## Ortho Equilibrium
+### Ortho Equilibrium
 
-## Para Equilibrium
+### Para Equilibrium
 
 ## Ternary System
 
