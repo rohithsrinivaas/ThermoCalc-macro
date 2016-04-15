@@ -1,28 +1,31 @@
-function [outputs] = G_AlNi(T, y_Al1, y_Al2)
-	outputs = G_ref(T, y_Al1, y_Al2) ...
-			+ G_conf(T, y_Al1, y_Al2) ...
-			+ G_E(T, y_Al1, y_Al2);
+function [outputs] = G_AlNi(T, y_Al1)
+	outputs = G_ref(T, y_Al1) ...
+			+ G_conf(T, y_Al1) ...
+			+ G_E(T, y_Al1);
 end
 
-function [outputs] = G_ref(T, y_Al1, y_Al2)
+function [outputs] = G_ref(T, y_Al1)
+    y_Al2 = 0.8 - y_Al1;
     y_Ni1 = 1.0 - y_Al1;
     y_Ni2 = 1.0 - y_Al2;
-	outputs = (y_Al1'*y_Al2).*G_AlNi_AlAl(T) + (y_Al1'*y_Ni2).*G_AlNi_AlNi(T) ...
-			+ (y_Ni1'*y_Ni2).*G_AlNi_NiNi(T) + (y_Ni1'*y_Al2).*G_AlNi_NiAl(T);
+	outputs = (y_Al1.*y_Al2).*G_AlNi_AlAl(T) + (y_Al1.*y_Ni2).*G_AlNi_AlNi(T) ...
+			+ (y_Ni1.*y_Ni2).*G_AlNi_NiNi(T) + (y_Ni1.*y_Al2).*G_AlNi_NiAl(T);
 end
 
-function [outputs] = G_conf(T, y_Al1, y_Al2)
+function [outputs] = G_conf(T, y_Al1)
+    y_Al2 = 0.8 - y_Al1;
     y_Ni1 = 1.0 - y_Al1;
     y_Ni2 = 1.0 - y_Al2;
-	outputs = 8.314*T*0.5*(y_Al1'*log(y_Al1) + y_Ni1'*log(y_Ni1) ...
-			+ y_Al2'*log(y_Al2) + y_Ni2'*log(y_Ni2));
+	outputs = 8.314*T*0.5*(y_Al1.*log(y_Al1) + y_Ni1.*log(y_Ni1) ...
+			+ y_Al2.*log(y_Al2) + y_Ni2.*log(y_Ni2));
 end
 
-function [outputs] = G_E(T, y_Al1, y_Al2)
+function [outputs] = G_E(T, y_Al1)
+    y_Al2 = 0.8 - y_Al1;
     y_Ni1 = 1.0 - y_Al1;
     y_Ni2 = 1.0 - y_Al2;
-	outputs = (y_Al1.*y_Ni1)'*(y_Al2.*L_AlNiAl(T) + y_Ni2.*L_AlNiNi(T, y_Al2)) ...
-			+ (y_Al2.*y_Ni2)'*(y_Al1.*L_AlAlNi(T) + y_Ni1.*L_NiAlNi(T, y_Al2));
+	outputs = (y_Al1.*y_Ni1).*(y_Al2.*L_AlNiAl(T) + y_Ni2.*L_AlNiNi(T, y_Al1)) ...
+			+ (y_Al2.*y_Ni2).*(y_Al1.*L_AlAlNi(T) + y_Ni1.*L_NiAlNi(y_Al2));
 end
 
 % G^AlNi_Al:Al
@@ -46,14 +49,14 @@ function [outputs] = G_AlNi_NiAl(T)
 	outputs = G_AlNi_AlNi(T);
 end
 
-function [outputs] = L_NiAlNi(T, y_Al2)
+function [outputs] = L_NiAlNi(y_Al2)
     y_Ni2 = 1.0 - y_Al2;
-	outputs = L0_AlNi_NiAlNi(T) + L1_AlNi_NiAlNi(T)*(y_Al2 - y_Ni2);
+	outputs = L0_AlNi_NiAlNi() + L1_AlNi_NiAlNi()*(y_Al2 - y_Ni2);
 end
 
-function [outputs] = L_AlNiNi(T, y_Al2)
-    y_Ni2 = 1.0 - y_Al2;
-	outputs = L0_AlNi_AlNiNi(T) + L1_AlNi_AlNiNi(T)*(y_Al2 - y_Ni2);
+function [outputs] = L_AlNiNi(T, y_Al1)
+    y_Ni1 = 1.0 - y_Al1;
+	outputs = L0_AlNi_AlNiNi(T) + L1_AlNi_AlNiNi()*(y_Al1 - y_Ni1);
 end
 
 % L
@@ -76,7 +79,7 @@ function [outputs] = L0_AlNi_AlAlNi(T)
 end
 
 % L^0^AlNi_Ni:Al,Ni
-function [outputs] = L0_AlNi_NiAlNi(T)
+function [outputs] = L0_AlNi_NiAlNi()
 	outputs = -22050;
 end
 
@@ -86,19 +89,17 @@ function [outputs] = L0_AlNi_AlNiNi(T)
 end
 
 % L^1^AlNi_Ni:Al,Ni
-function [outputs] = L1_AlNi_NiAlNi(T)
+function [outputs] = L1_AlNi_NiAlNi()
 	outputs = 1115;
 end
 
 % L^1^AlNi_Al,Ni:Ni
-function [outputs] = L1_AlNi_AlNiNi(T)
-	outputs = L1_AlNi_NiAlNi(T);
+function [outputs] = L1_AlNi_AlNiNi()
+	outputs = L1_AlNi_NiAlNi();
 end
 
-
-
 function [outputs] = GHSERAl(T)
-	outputs = -11278.4 + 188.684*T - 31.7482*log(T) - 1.231e28*T^-9;
+	outputs = -11278.4 + 188.684*T - 31.7482*T*log(T) - 1.231e28*T^-9;
 end
 
 function [outputs] = GHSERNi(T)
