@@ -88,9 +88,11 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename G_yAl#1.svg
 	width 100col%
+	height 30pheight%
 	rotateOrigin leftTop
 
 \end_inset
@@ -121,24 +123,148 @@ Gibbs energy vs
 \end_layout
 
 \begin_layout Standard
-Site fractions: 
-\begin_inset Formula $y_{Al\#1}=0$
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{Al\#1}$
 \end_inset
 
-, 
-\begin_inset Formula $y_{Ni\#1}=1$
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.7999$
 \end_inset
 
- : 
-\begin_inset Formula $y_{Al\#2}=0.8$
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{Al\#2}$
 \end_inset
 
-, 
-\begin_inset Formula $y_{Ni\#2}=0.2$
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5.2225e-5$
 \end_inset
 
 
-\begin_inset Newline newline
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{Ni\#1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.2001$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{Ni\#2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.9999$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Minimisation of Gibbs Energy; 
+\begin_inset Formula $G_{min}=-1.0753e+05$
+\end_inset
+
+ 
+\begin_inset Formula $Jmol^{-1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
@@ -148,7 +274,11 @@ Site fractions:
 I used MATLAB scripts for summing up all contributions to Gibbs energy and
  plotting it while imposing the given constraints.
  No minima was observed and the lowest value was found at the start value.
- Scripts can be found in the same directory as this report.
+ Scripts (
+\emph on
+optimize_G_AlNi.m and G_AlNi.m
+\emph default
+) can be found in the same directory as this report.
 \end_layout
 
 \end_body
