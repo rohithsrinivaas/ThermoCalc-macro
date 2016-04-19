@@ -1,16 +1,16 @@
 function [outputs] = Muggianu(xNb, xTi, xV, xZr)
-	xNbNbTi = (1+xNb-xTi)/2;
-	xTiNbTi = (1+xTi-xNb)/2;
-	xNbNbV 	= (1+xNb-xV)/2;
-	xVNbV 	= (1+xV-xNb)/2;
-	xNbNbZr = (1+xNb-xZr)/2;
-	xZrNbZr = (1+xZr-xNb)/2;
-	xTiTiV 	= (1+xTi-xV)/2;
-	xVTiV 	= (1+xV-xTi)/2;
-	xTiTiZr = (1+xTi-xZr)/2;
-	xZrTiZr = (1+xZr-xTi)/2;
-	xVVZr 	= (1+xV-xZr)/2;
-	xZrVZr 	= (1+xZr-xV)/2;
+	xNbNbTi = (100+xNb-xTi)/2;
+	xTiNbTi = (100+xTi-xNb)/2;
+	xNbNbV 	= (100+xNb-xV)/2;
+	xVNbV 	= (100+xV-xNb)/2;
+	xNbNbZr = (100+xNb-xZr)/2;
+	xZrNbZr = (100+xZr-xNb)/2;
+	xTiTiV 	= (100+xTi-xV)/2;
+	xVTiV 	= (100+xV-xTi)/2;
+	xTiTiZr = (100+xTi-xZr)/2;
+	xZrTiZr = (100+xZr-xTi)/2;
+	xVVZr 	= (100+xV-xZr)/2;
+	xZrVZr 	= (100+xZr-xV)/2;
 	outputs = ...
 	  xNb*xTi*NbTi(xNbNbTi, xTiNbTi)./(xNbNbTi*xTiNbTi) ...
 	+ xNb.*xV.*NbV(xNbNbV, xVNbV)./(xNbNbV.*xVNbV) ...

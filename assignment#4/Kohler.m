@@ -1,16 +1,16 @@
 function [outputs] = Kohler(xNb, xTi, xV, xZr)
-	xNbNbTi = ((1+xNb-xTi) + (xNb-xTi)*(1-xNb-xTi)./(xNb+xTi))/2;
-	xTiNbTi = ((1+xTi-xNb) + (xTi-xNb)*(1-xNb-xTi)./(xNb+xTi))/2;
-	xNbNbV 	= ((1+xNb-xV) + (xNb-xV).*(1-xNb-xV)./(xNb+xV))/2;
-	xVNbV 	= ((1+xV-xNb) + (xV-xNb).*(1-xNb-xV)./(xNb+xV))/2;
-	xNbNbZr = ((1+xNb-xZr) + (xNb-xZr).*(1-xNb-xZr)./(xNb+xZr))/2;
-	xZrNbZr = ((1+xZr-xNb) + (xZr-xNb).*(1-xNb-xZr)./(xNb+xZr))/2;
-	xTiTiV 	= ((1+xTi-xV) + (xTi-xV).*(1-xTi-xV)./(xTi+xV))/2;
-	xVTiV 	= ((1+xV-xTi) + (xV-xTi).*(1-xV-xTi)./(xV+xTi))/2;
-	xTiTiZr = ((1+xTi-xZr) + (xTi-xZr).*(1-xTi-xZr)./(xTi+xZr))/2;
-	xZrTiZr = ((1+xZr-xTi) + (xZr-xTi).*(1-xZr-xTi)./(xZr+xTi))/2;
-	xVVZr 	= ((1+xV-xZr) + (xV-xZr).*(1-xV-xZr)./(xV+xZr))/2;
-	xZrVZr 	= ((1+xZr-xV) + (xZr-xV).*(1-xZr-xV)./(xZr+xV))/2;
+	xNbNbTi = ((100+xNb-xTi) + (xNb-xTi)*(100-xNb-xTi)./(xNb+xTi))/2;
+	xTiNbTi = ((100+xTi-xNb) + (xTi-xNb)*(100-xNb-xTi)./(xNb+xTi))/2;
+	xNbNbV 	= ((100+xNb-xV) + (xNb-xV).*(100-xNb-xV)./(xNb+xV))/2;
+	xVNbV 	= ((100+xV-xNb) + (xV-xNb).*(100-xNb-xV)./(xNb+xV))/2;
+	xNbNbZr = ((100+xNb-xZr) + (xNb-xZr).*(100-xNb-xZr)./(xNb+xZr))/2;
+	xZrNbZr = ((100+xZr-xNb) + (xZr-xNb).*(100-xNb-xZr)./(xNb+xZr))/2;
+	xTiTiV 	= ((100+xTi-xV) + (xTi-xV).*(100-xTi-xV)./(xTi+xV))/2;
+	xVTiV 	= ((100+xV-xTi) + (xV-xTi).*(100-xV-xTi)./(xV+xTi))/2;
+	xTiTiZr = ((100+xTi-xZr) + (xTi-xZr).*(100-xTi-xZr)./(xTi+xZr))/2;
+	xZrTiZr = ((100+xZr-xTi) + (xZr-xTi).*(100-xZr-xTi)./(xZr+xTi))/2;
+	xVVZr 	= ((100+xV-xZr) + (xV-xZr).*(100-xV-xZr)./(xV+xZr))/2;
+	xZrVZr 	= ((100+xZr-xV) + (xZr-xV).*(100-xZr-xV)./(xZr+xV))/2;
 	outputs = ...
 	xNb*xTi*NbTi(xNbNbTi, xTiNbTi)./(xNbNbTi*xTiNbTi) ...
 	+ xNb.*xV.*NbV(xNbNbV, xVNbV)./(xNbNbV.*xVNbV) ...
