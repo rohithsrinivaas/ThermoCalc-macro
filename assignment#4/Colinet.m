@@ -1,37 +1,37 @@
 function [outputs] = Colinet(xNb, xTi, xV, xZr)
-	xNbNbTi 	= ((100+xNb-xTi) + (100-xNb-xTi))/2;
-	xTiNbTi 	= ((100+xTi-xNb) + (100-xNb-xTi))/2;
-	xNbNbV 	= ((100+xNb-xV) + (100-xNb-xV))/2;
-	xVNbV 		= ((100+xV-xNb) + (100-xNb-xV))/2;
-	xNbNbZr 	= ((100+xNb-xZr) + (100-xNb-xZr))/2;
-	xZrNbZr 	= ((100+xZr-xNb) + (100-xNb-xZr))/2;
-	xTiTiV 	= ((100+xTi-xV) + (100-xTi-xV))/2;
-	xVTiV 		= ((100+xV-xTi) + (100-xV-xTi))/2;
-	xTiTiZr 	= ((100+xTi-xZr) + (100-xTi-xZr))/2;
-	xZrTiZr 	= ((100+xZr-xTi) + (100-xZr-xTi))/2;
-	xVVZr 		= ((100+xV-xZr) + (100-xV-xZr))/2;
-	xZrVZr 	= ((100+xZr-xV) + (100-xZr-xV))/2;
+	x1NbNbTi 	= ((1+xNb-xTi) + (1-xNb-xTi))/2;
+	x1TiNbTi 	= ((1+xTi-xNb) + (1-xNb-xTi))/2;
+	x1NbNbV 	= ((1+xNb-xV) + (1-xNb-xV))/2;
+	x1VNbV 		= ((1+xV-xNb) + (1-xNb-xV))/2;
+	x1NbNbZr 	= ((1+xNb-xZr) + (1-xNb-xZr))/2;
+	x1ZrNbZr 	= ((1+xZr-xNb) + (1-xNb-xZr))/2;
+	x1TiTiV 	= ((1+xTi-xV) + (1-xTi-xV))/2;
+	x1VTiV 		= ((1+xV-xTi) + (1-xV-xTi))/2;
+	x1TiTiZr 	= ((1+xTi-xZr) + (1-xTi-xZr))/2;
+	x1ZrTiZr 	= ((1+xZr-xTi) + (1-xZr-xTi))/2;
+	x1VVZr 		= ((1+xV-xZr) + (1-xV-xZr))/2;
+	x1ZrVZr 	= ((1+xZr-xV) + (1-xZr-xV))/2;
 
-	x2NbNbTi 	= ((100+xNb-xTi) - (100-xNb-xTi))/2;
-	x2TiNbTi 	= ((100+xTi-xNb) - (100-xNb-xTi))/2;
-	x2NbNbV 	= ((100+xNb-xV) - (100-xNb-xV))/2;
-	x2VNbV 		= ((100+xV-xNb) - (100-xNb-xV))/2;
-	x2NbNbZr 	= ((100+xNb-xZr) - (100-xNb-xZr))/2;
-	x2ZrNbZr 	= ((100+xZr-xNb) - (100-xNb-xZr))/2;
-	x2TiTiV 	= ((100+xTi-xV) - (100-xTi-xV))/2;
-	x2VTiV 		= ((100+xV-xTi) - (100-xV-xTi))/2;
-	x2TiTiZr 	= ((100+xTi-xZr) - (100-xTi-xZr))/2;
-	x2ZrTiZr 	= ((100+xZr-xTi) - (100-xZr-xTi))/2;
-	x2VVZr 		= ((100+xV-xZr) - (100-xV-xZr))/2;
-	x2ZrVZr 	= ((100+xZr-xV) - (100-xZr-xV))/2;
+	x2NbNbTi 	= ((1+xNb-xTi) - (1-xNb-xTi))/2;
+	x2TiNbTi 	= ((1+xTi-xNb) - (1-xNb-xTi))/2;
+	x2NbNbV 	= ((1+xNb-xV) - (1-xNb-xV))/2;
+	x2VNbV 		= ((1+xV-xNb) - (1-xNb-xV))/2;
+	x2NbNbZr 	= ((1+xNb-xZr) - (1-xNb-xZr))/2;
+	x2ZrNbZr 	= ((1+xZr-xNb) - (1-xNb-xZr))/2;
+	x2TiTiV 	= ((1+xTi-xV) - (1-xTi-xV))/2;
+	x2VTiV 		= ((1+xV-xTi) - (1-xV-xTi))/2;
+	x2TiTiZr 	= ((1+xTi-xZr) - (1-xTi-xZr))/2;
+	x2ZrTiZr 	= ((1+xZr-xTi) - (1-xZr-xTi))/2;
+	x2VVZr 		= ((1+xV-xZr) - (1-xV-xZr))/2;
+	x2ZrVZr 	= ((1+xZr-xV) - (1-xZr-xV))/2;
 
 	outputs = ...
-	xNb*xTi*NbTi(xNbNbTi, xTiNbTi)./(xNbNbTi*xTiNbTi) ...
-	+ xNb.*xV.*NbV(xNbNbV, xVNbV)./(xNbNbV.*xVNbV) ...
-	+ xNb.*xZr.*NbZr(xNbNbZr, xZrNbZr)./(xNbNbZr.*xZrNbZr) ...
-	+ xTi.*xV.*TiV(xTiTiV, xVTiV)./(xTiTiV.*xVTiV) ...
-	+ xTi.*xZr.*TiZr(xTiTiZr, xZrTiZr)./(xTiTiZr.*xZrTiZr) ...
-	+ xV.*xZr.*VZr(xVVZr, xZrVZr)./(xVVZr.*xZrVZr);
+	xNb*xTi*NbTi(x1NbNbTi, x1TiNbTi)./(x1NbNbTi*x1TiNbTi) ...
+	+ xNb.*xV.*NbV(x1NbNbV, x1VNbV)./(x1NbNbV.*x1VNbV) ...
+	+ xNb.*xZr.*NbZr(x1NbNbZr, x1ZrNbZr)./(x1NbNbZr.*x1ZrNbZr) ...
+	+ xTi.*xV.*TiV(x1TiTiV, x1VTiV)./(x1TiTiV.*x1VTiV) ...
+	+ xTi.*xZr.*TiZr(x1TiTiZr, x1ZrTiZr)./(x1TiTiZr.*x1ZrTiZr) ...
+	+ xV.*xZr.*VZr(x1VVZr, x1ZrVZr)./(x1VVZr.*x1ZrVZr);
 
 	outputs = outputs ...
 	+ xNb*xTi*NbTi(x2NbNbTi, x2TiNbTi)./(x2NbNbTi*x2TiNbTi) ...
