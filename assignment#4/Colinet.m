@@ -1,4 +1,5 @@
 function [outputs] = Colinet(xNb, xTi, xV, xZr)
+	% 24 terms in Colinet method
 	x1NbNbTi 	= ((1+xNb-xTi) + (1-xNb-xTi))/2;
 	x1TiNbTi 	= ((1+xTi-xNb) + (1-xNb-xTi))/2;
 	x1NbNbV 	= ((1+xNb-xV) + (1-xNb-xV))/2;

@@ -1,4 +1,7 @@
+% created by abhishandy on 22-Apr-2016
+
 function [outputs] = Kohler(xNb, xTi, xV, xZr)
+	% 12 terms in the Kohler method
 	xNbNbTi = ((1+xNb-xTi) + (xNb-xTi)*(1-xNb-xTi)./(xNb+xTi))/2;
 	xTiNbTi = ((1+xTi-xNb) + (xTi-xNb)*(1-xNb-xTi)./(xNb+xTi))/2;
 	xNbNbV 	= ((1+xNb-xV) + (xNb-xV).*(1-xNb-xV)./(xNb+xV))/2;

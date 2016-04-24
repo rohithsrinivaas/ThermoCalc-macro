@@ -1,4 +1,5 @@
 function [outputs] = Muggianu(xNb, xTi, xV, xZr)
+	% 12 terms in Muggianu method
 	xNbNbTi = (1+xNb-xTi)/2;
 	xTiNbTi = (1+xTi-xNb)/2;
 	xNbNbV 	= (1+xNb-xV)/2;
