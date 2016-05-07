@@ -1,0 +1,34 @@
+SET_ECHO on
+
+go DATABASE_RETRIEVAL
+swi sldemo
+d-sy ag cu
+GET_DATA
+
+GOTO_MODULE -3
+s-c p=1e5 n=1 x(ag)=0.2 t=500
+c-e
+s-a-v 1 x(ag) 0 1,,
+s-a-v 2 t 300 1500,,
+MAP
+
+POST
+PLOT_DIAGRAM
+MAKE_EXPERIMENTAL_DATAFILE file agcu
+
+BACK
+s-a-v 2 none
+STEP_WITH_OPTIONS t-zero
+fcc_a1
+LIST_EQUILIBRIUM
+
+POST
+s-d-a x m-f ag
+s-d-a y t-k
+PLOT_DIAGRAM
+APPEND_DATABASE y agcu
+1
+1
+PLOT_DIAGRAM
+
+SET_INTERACTIVE
