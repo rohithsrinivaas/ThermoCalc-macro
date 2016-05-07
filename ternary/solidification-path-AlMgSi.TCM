@@ -1,0 +1,50 @@
+SET_ECHO ON
+
+GOTO_MODULE DATABASE_RETRIEVAL
+SWITCH_DATABASE ptern
+DEFINE_SYSTEM al mg si
+GET_DATA
+
+GOTO_MODULE -3
+s-c p=1e5 n=1
+s-c t=850
+s-c w(mg)=0.2 w(si)=0.3
+c-e
+s-a-v 1 w(mg) 0 1 ,,
+s-a-v 2 w(si) 0 1 ,,
+s-a-v 3 t 500 2000 ,,
+ad-o present liq
+MAP
+
+POST
+s-d-t y
+s-d-a x w(liq,mg)
+s-d-a y w(liq,si)
+s-d-a z t-k
+PLOT_DIAGRAM
+MAKE_EXPERIMENTAL_DATAFILE file almgsi
+
+BACK
+s-c w(mg)=3e-2
+s-c w(si)=3e-2
+ad-o present none
+c-e
+s-a-v 1 t 500 1700 ,,
+s-a-v 2 none
+s-a-v 3 none
+STEP_WITH_OPTIONS ,,
+
+POST
+s-d-t y
+s-d-a x w(liq,mg)
+s-d-a y w(liq,si)
+s-d-a z t-k
+PLOT_DIAGRAM
+APPEND_DATABASE y almgsi
+1
+1
+s-s x n 0 1
+s-s y n 0 1
+PLOT_DIAGRAM
+
+SET_INTERACTIVE
